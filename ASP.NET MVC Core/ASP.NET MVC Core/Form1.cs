@@ -4,23 +4,26 @@ namespace ASP.NET_MVC_Core
 {
     public partial class Form1 : Form
     {
-        const double sec = 1000;
+        private const double Sec = 1000;
+        private int _num0 = 0;
+        private int _num1 = 1;
+        private int _num2 = 0;
+        private int _sleep = 2000;
+        private Thread _start;
         public Form1()
         {
             InitializeComponent();
         }
         
-        private int num0 = 0;
-        private int num1 = 1;
-        private int num2 = 0;
+
         public void Fibonacci(int sleep)
         {
-            num0 += num1;
+            _num0 += _num1;
             try
             {
                 textBox_fibonacci.BeginInvoke(new Action(() =>
                 {
-                    textBox_fibonacci.Text = num0.ToString();
+                    textBox_fibonacci.Text = _num0.ToString();
                 }));
                 var timer = new Thread(() =>
                 {
@@ -30,14 +33,14 @@ namespace ASP.NET_MVC_Core
                 Thread.Sleep(sleep);
                 while (true)
                 {
-                    num2 = num0 + num1;
+                    _num2 = _num0 + _num1;
                     textBox_fibonacci.BeginInvoke(new Action(() =>
                     {
-                        textBox_fibonacci.Text = num0.ToString();
+                        textBox_fibonacci.Text = _num0.ToString();
                     }));
 
-                    num0 = num1;
-                    num1 = num2;
+                    _num0 = _num1;
+                    _num1 = _num2;
                     timer = new Thread(() =>
                     {
                         Timer(sleep);
@@ -66,7 +69,7 @@ namespace ASP.NET_MVC_Core
                     textBox_time.BeginInvoke(new Action(() =>
                     {
                         if (i >= 0)
-                            textBox_time.Text = (i / sec).ToString(specifier, culture);
+                            textBox_time.Text = (i / Sec).ToString(specifier, culture);
                     }));
                     i -= sleep;
                     Thread.Sleep(sleep);
@@ -80,13 +83,38 @@ namespace ASP.NET_MVC_Core
         }
         private void button_start_Click(object sender, EventArgs e)
         {
-            var sleep = 2000;
-            new Thread(() =>
+            _start = new Thread(() =>
             {
-                Fibonacci(sleep);
-            }).Start();
+                Fibonacci(_sleep);
+            });
+            _start.Start();
             
             button_start.Visible = false;
+        }
+
+        private void timer_slide_Scroll(object sender, EventArgs e)
+        {
+            _start.Interrupt();
+            new Thread(() =>
+            {
+                Slider();
+            }).Start();
+            _sleep = timer_slide.Value;
+            text.Text = _sleep.ToString();
+        }
+
+        private void Slider()
+        {
+            Thread.Sleep(_sleep);
+            
+            if (_start.IsAlive == false)
+            {
+                _start = new Thread(() =>
+                {
+                    Fibonacci(_sleep);
+                });
+                _start.Start();
+            }
         }
     }
 }
