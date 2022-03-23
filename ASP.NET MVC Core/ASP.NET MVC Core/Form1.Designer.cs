@@ -28,32 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox__fibonacci = new System.Windows.Forms.ListBox();
+            this.button_start = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // listBox__fibonacci
+            // button_start
             // 
-            this.listBox__fibonacci.FormattingEnabled = true;
-            this.listBox__fibonacci.ItemHeight = 15;
-            this.listBox__fibonacci.Location = new System.Drawing.Point(158, 95);
-            this.listBox__fibonacci.Name = "listBox__fibonacci";
-            this.listBox__fibonacci.Size = new System.Drawing.Size(120, 94);
-            this.listBox__fibonacci.TabIndex = 1;
+            this.button_start.Location = new System.Drawing.Point(74, 125);
+            this.button_start.Name = "button_start";
+            this.button_start.Size = new System.Drawing.Size(120, 23);
+            this.button_start.TabIndex = 2;
+            this.button_start.Text = "Start";
+            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.Click += new System.EventHandler(this.button_start_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(74, 83);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(646, 23);
+            this.textBox1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox__fibonacci);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button_start);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private ListBox listBox__fibonacci;
+        private Button button_start;
+        private TextBox textBox1;
     }
 }
