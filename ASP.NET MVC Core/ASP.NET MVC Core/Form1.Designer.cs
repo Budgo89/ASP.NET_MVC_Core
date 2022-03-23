@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.listBox__fibonacci = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // listBox__fibonacci
+            // 
+            this.listBox__fibonacci.FormattingEnabled = true;
+            this.listBox__fibonacci.ItemHeight = 15;
+            this.listBox__fibonacci.Location = new System.Drawing.Point(158, 95);
+            this.listBox__fibonacci.Name = "listBox__fibonacci";
+            this.listBox__fibonacci.Size = new System.Drawing.Size(120, 94);
+            this.listBox__fibonacci.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox__fibonacci);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private ListBox listBox__fibonacci;
     }
 }
