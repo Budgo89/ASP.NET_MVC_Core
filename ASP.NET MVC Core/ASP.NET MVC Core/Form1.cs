@@ -10,21 +10,26 @@ namespace ASP.NET_MVC_Core
         private int _num2 = 0;
         private int _sleep = 2000;
         private Thread _start;
+        private static object lockObject = new object();
         public Form1()
         {
             InitializeComponent();
         }
         
-
+        
         public void Fibonacci(int sleep)
         {
             _num0 += _num1;
             try
             {
-                textBox_fibonacci.BeginInvoke(new Action(() =>
+                lock (lockObject)
                 {
-                    textBox_fibonacci.Text = _num0.ToString();
-                }));
+                    textBox_fibonacci.BeginInvoke(new Action(() =>
+                    {
+                        textBox_fibonacci.Text = _num0.ToString();
+                    }));
+                }
+
                 var timer = new Thread(() =>
                 {
                     Timer(sleep);
@@ -34,10 +39,13 @@ namespace ASP.NET_MVC_Core
                 while (true)
                 {
                     _num2 = _num0 + _num1;
-                    textBox_fibonacci.BeginInvoke(new Action(() =>
+                    lock (lockObject)
                     {
-                        textBox_fibonacci.Text = _num0.ToString();
-                    }));
+                        textBox_fibonacci.BeginInvoke(new Action(() =>
+                        {
+                            textBox_fibonacci.Text = _num0.ToString();
+                        }));
+                    }
 
                     _num0 = _num1;
                     _num1 = _num2;
