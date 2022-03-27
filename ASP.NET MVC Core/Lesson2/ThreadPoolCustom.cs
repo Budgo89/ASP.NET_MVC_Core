@@ -73,7 +73,7 @@ namespace Lesson2
 
             for (int i = 0; i < number; i++)
             {
-                _listThread.Remove(_listThread[i]);
+                _listThread.Remove(_listRunningThreads[i]);
             }
         }
 
@@ -82,13 +82,14 @@ namespace Lesson2
             if (_listRunningThreads.Count == 0)
                 return;
 
-            foreach (var item in _listRunningThreads)
+            for (int i = 0; i < _listRunningThreads.Count; i++)
             {
-                if (item.IsAlive == false)
+                if (_listRunningThreads[i].IsAlive == false)
                 {
-                    _listRunningThreads.Remove(item);
+                    _listRunningThreads.Remove(_listRunningThreads[i]);
                 }
             }
+
         }
 
         private bool ThereAreThreadsInTheQueue()
