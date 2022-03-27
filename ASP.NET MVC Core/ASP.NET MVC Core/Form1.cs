@@ -117,6 +117,7 @@ namespace ASP.NET_MVC_Core
             
             if (_start.IsAlive == false)
             {
+
                 _start = new Thread(() =>
                 {
                     Fibonacci(_sleep);
