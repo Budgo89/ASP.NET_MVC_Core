@@ -1,50 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using Lesson4.Models;
 
-namespace Lesson4
+namespace Lesson4;
+
+public class Jasongenerator
 {
-    public class Jasongenerator
+    public Jasongenerator()
     {
-        public Jasongenerator()
+        List<Phone> phones = new();
+        List<Auto> autos = new();
+        List<Sticks> sticks = new();
+
+        phones.Add(new Phone("iPhone", "13 Pro", 150000));
+        phones.Add(new Phone("HONOR", "50 Lite", 100000));
+        phones.Add(new Phone("OnePlus", "7 Pro", 100000));
+
+        var file = new FileInfo("Phone.json");
+
+        using (var json = file.Create())
         {
-            List<Phone> phones = new List<Phone>();
-            List<Auto> autos = new List<Auto>();
-            List<Sticks> sticks = new List<Sticks>();
+            JsonSerializer.Serialize(json, phones);
+        }
 
-            phones.Add(new Phone("iPhone", "13 Pro", 150000));
-            phones.Add(new Phone("HONOR", "50 Lite", 100000));
-            phones.Add(new Phone("OnePlus", "7 Pro", 100000));
+        autos.Add(new Auto("AvtoVAZ ", "Vesta", 1000000));
+        autos.Add(new Auto("Hyundai ", "Solaris", 1500000));
+        autos.Add(new Auto("Mercedes", "EQE", 15000000));
+        file = new FileInfo("Auto.json");
 
-            var file = new FileInfo("Phone.json");
+        using (var json = file.Create())
+        {
+            JsonSerializer.Serialize(json, autos);
+        }
 
-            using (var json = file.Create())
-            {
-                JsonSerializer.Serialize(json, phones);
-            }
+        sticks.Add(new Sticks("HEETS", "Purple", 160));
+        sticks.Add(new Sticks("Fiit ", "Tropic", 1500000));
+        file = new FileInfo("Sticks.json");
 
-            autos.Add(new Auto("AvtoVAZ ", "Vesta", 1000000));
-            autos.Add(new Auto("Hyundai ", "Solaris", 1500000));
-            autos.Add(new Auto("Mercedes", "EQE", 15000000));
-            file = new FileInfo("Auto.json");
-
-            using (var json = file.Create())
-            {
-                JsonSerializer.Serialize(json, autos);
-            }
-
-            sticks.Add(new Sticks("HEETS", "Purple", 160));
-            sticks.Add(new Sticks("Fiit ", "Tropic", 1500000));
-            file = new FileInfo("Sticks.json");
-
-            using (var json = file.Create())
-            {
-                JsonSerializer.Serialize(json, sticks);
-            }
+        using (var json = file.Create())
+        {
+            JsonSerializer.Serialize(json, sticks);
         }
     }
 }
