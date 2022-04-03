@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Lesson4.Models;
 
-namespace Lesson4.Models
+public class Auto : IModel
 {
-    internal class Auto
-    {
-        internal string Model { get; set; }
-        internal string Marka { get; set; }
-        internal float Price { get; set; }
+    public string Model { get; set; }
+    public string Marka { get; set; }
+    public float Price { get; set; }
 
-        internal Auto(string model, string marka, float price)
-        {
-            Model = model;
-            Marka = marka;
-            Price = price;
-        }
+    public Auto(string model, string marka, float price)
+    {
+        Model = model;
+        Marka = marka;
+        Price = price;
     }
 }

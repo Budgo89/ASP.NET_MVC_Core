@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Lesson4.Models;
 
-namespace Lesson4.Models
+[Serializable]
+public class Phone : IModel
 {
-    internal class Phone
-    {
-        internal string Name { get; set; }
-        internal string Model { get; set; }
-        internal float Price { get; set; }
+    public string Name { get; set; }
+    public string Model { get; set; }
+    public float Price { get; set; }
 
-        internal Phone(string name, string model, float price)
-        {
-            Name = name;
-            Model = model;
-            Price = price;
-        }
+    public Phone(string name, string model, float price)
+    {
+        Name = name;
+        Model = model;
+        Price = price;
     }
 }
+
