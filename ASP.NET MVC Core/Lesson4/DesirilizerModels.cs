@@ -32,7 +32,7 @@ internal class DesirilizerModels
                 break;
         }
     }
-
+    
     private void PrintError()
     {
         Console.WriteLine("неверная модель или имя файла");
@@ -55,7 +55,7 @@ internal class DesirilizerModels
     {
         if(_autos!.Count == 0)
             return;
-        foreach (var auto in _autos)
+        foreach (var auto in _autos) 
         {
             Console.WriteLine(auto.Model);
             Console.WriteLine(auto.Marka);
@@ -82,7 +82,16 @@ internal class DesirilizerModels
         {
             _phones = JsonSerializer.Deserialize<List<Phone>>(json);
         }
-        return _phones == null || _phones.Count != 0;
+        foreach (var phone in _phones)
+        {
+            if (phone.Name == null)
+                return false;
+            if (phone.Model == null)
+                return false;
+            if (phone.Price == null)
+                return false;
+        }
+        return true;
     }
     private bool DeserializeAuto(string filePath)
     {
@@ -90,7 +99,16 @@ internal class DesirilizerModels
         {
             _autos = JsonSerializer.Deserialize<List<Auto>>(json);
         }
-        return _autos == null || _autos.Count != 0;
+        foreach (var auto in _autos)
+        {
+            if (auto.Marka== null)
+                return false;
+            if (auto.Model == null)
+                return false;
+            if (auto.Price == null)
+                return false;
+        }
+        return true;
     }
     private bool DeserializeSticks(string filePath)
     {
@@ -98,6 +116,16 @@ internal class DesirilizerModels
         {
             _sticks = JsonSerializer.Deserialize<List<Sticks>>(json);
         }
-        return _sticks == null || _sticks.Count != 0;
+
+        foreach (var stick in _sticks)
+        {
+            if (stick.Manufacturer == null)
+                return false;
+            if (stick.Taste == null)
+                return false;
+            if (stick.Price == null)
+                return false;
+        }
+        return true;
     }
 }
