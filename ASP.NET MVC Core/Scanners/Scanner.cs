@@ -7,11 +7,13 @@ public class Scanner
 {
     private List<IMetrics> _metrics;
     private ToGetData _toGetData;
+    private Monitors.Monitors _monitors;
 
-    public Scanner()
+    public Scanner(Monitors.Monitors monitors)
     {
         _toGetData = new ToGetData();
         _metrics = new List<IMetrics>();
+        _monitors = monitors;
     }
 
     public void GeMetric()
@@ -21,7 +23,6 @@ public class Scanner
 
     public void SetMetric()
     {
-        var monitor = new Monitors.Monitors(_metrics);
-        monitor.Save();
+        _monitors.Save();
     }
 }

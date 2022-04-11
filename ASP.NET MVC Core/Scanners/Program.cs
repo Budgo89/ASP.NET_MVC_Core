@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ToGetData>();
 builder.Services.AddScoped<Scanner>();
+builder.Services.AddSingleton<Monitors.Monitors>();
 
 var app = builder.Build();
 
