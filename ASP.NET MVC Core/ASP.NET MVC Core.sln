@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson_5", "Lesson_5", "{CA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson5", "Lesson5\Lesson5.csproj", "{AE3CA48A-6049-4C04-8AFF-95A52E7E2F86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitors", "Monitors\Monitors.csproj", "{D41D7B58-F7FB-4CB5-893F-1B67812164E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitors", "Monitors\Monitors.csproj", "{D41D7B58-F7FB-4CB5-893F-1B67812164E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanners", "Scanners\Scanners.csproj", "{068E088F-AD2F-42AB-90B2-33C930AFF6AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{D41D7B58-F7FB-4CB5-893F-1B67812164E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D41D7B58-F7FB-4CB5-893F-1B67812164E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D41D7B58-F7FB-4CB5-893F-1B67812164E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068E088F-AD2F-42AB-90B2-33C930AFF6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068E088F-AD2F-42AB-90B2-33C930AFF6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068E088F-AD2F-42AB-90B2-33C930AFF6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068E088F-AD2F-42AB-90B2-33C930AFF6AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AE3CA48A-6049-4C04-8AFF-95A52E7E2F86} = {CACE3600-F443-47A6-801E-E3C52CB3BF88}
 		{D41D7B58-F7FB-4CB5-893F-1B67812164E7} = {CACE3600-F443-47A6-801E-E3C52CB3BF88}
+		{068E088F-AD2F-42AB-90B2-33C930AFF6AE} = {CACE3600-F443-47A6-801E-E3C52CB3BF88}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDAEAC56-7C0F-44E3-924A-4778F2C37B06}

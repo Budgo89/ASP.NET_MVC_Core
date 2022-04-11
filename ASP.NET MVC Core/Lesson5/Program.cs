@@ -2,5 +2,4 @@
 
 using Lesson5;
 
-
-Console.WriteLine();
+_ = new GeneratorMetrics();
