@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Schedule>
+@{
+    ViewBag.Title = "График";
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        @*<th>ID</th>*@
+        <th>День недели</th>
+        <th>Начало работы</th>
+        <th>Окончание работы</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var schedule in Model)
+    {
+        <tr>
+            @*<td>@schedule.Id</td>*@
+            <td>@schedule.DayOfTheWeek</td>
+            <td>@schedule.BeginningWork</td>
+            <td>@schedule.EndWork</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@schedule.Id">edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
