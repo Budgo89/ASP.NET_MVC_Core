@@ -1,15 +1,7 @@
-using Lesson8.Services;
-using Lesson8.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Identity.DAL.Context;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddSingleton<IScheduleStore, InMemoryScheduleStore>();;
-builder.Services.AddDbContext<IdentityDB>(opt => opt.UseSqlServer());
 
 var app = builder.Build();
 

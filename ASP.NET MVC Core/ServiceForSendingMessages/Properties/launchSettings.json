@@ -1,21 +1,21 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:61822/",
-      "sslPort": 44393
+      "applicationUrl": "http://localhost:3155",
+      "sslPort": 44303
     }
   },
   "profiles": {
-    "Lesson8": {
+    "ServiceForSendingMessages": {
       "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:7009;http://localhost:5009",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:7117;http://localhost:5117",
-      "dotnetRunMessages": true
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",
