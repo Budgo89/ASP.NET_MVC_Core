@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Mails>
+@{
+    ViewBag.Tirle = "Адреса рассылки";
+}
+<style type="text/css">.fa-user-edit { }
+
+                       .fa { }
+</style>
+
+<a class="btn btn-primary" asp-action="Create">Добавить почту</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Id</th>
+        <th>Почта</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var email in Model)
+    {
+        <tr>
+            <td>
+                <a asp-action="Delete" asp-route-id="@email.Id" class="text-danger">
+                    <i class="fa fixed-top"></i>
+                </a>
+            </td>
+            <td>@email.Id</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@email.Id">@email.Email</a>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@email.Id">edit
+                    <i class="fa fa-user-edit"></i>
+                </a>
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>

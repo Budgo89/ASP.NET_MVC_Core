@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServiceForSendingMessages.Models;
 using System.Diagnostics;
+using ServiceForSendingMessages.Services.Interfaces;
 
 namespace ServiceForSendingMessages.Controllers
 {

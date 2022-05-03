@@ -1,7 +1,12 @@
+using ServiceForSendingMessages.Services;
+using ServiceForSendingMessages.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var services = builder.Services;
+services.AddSingleton<IEmailsStore, InMemoryMailsStore>();
 
 var app = builder.Build();
 
